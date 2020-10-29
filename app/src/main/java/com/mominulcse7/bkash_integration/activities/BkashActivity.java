@@ -106,6 +106,7 @@ public class BkashActivity extends AppCompatActivity {
         public void onPageFinished(WebView view, String url) {
             String paymentRequest = "{paymentRequest:" + request + "}";
             wvBkashPayment.loadUrl("javascript:callReconfigure(" + paymentRequest + " )");
+            wvBkashPayment.loadUrl("javascript:getAmount(" + orderModel.getSub_total() + " )");
             wvBkashPayment.loadUrl("javascript:clickPayButton()");
             progressBar.setVisibility(view.GONE);
         }
